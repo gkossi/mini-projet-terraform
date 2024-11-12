@@ -1,6 +1,6 @@
 # MINI-PROJET-TERRAFORM : PROJECT BASED ON STUDENT-LIST PROJECT
 
-## INFORMATIONS A PROPOS DE L'AUTEUR
+### INFORMATIONS A PROPOS DE L'AUTEUR
 
 Session           : Bootcamp DevOps N°15
 
@@ -11,24 +11,24 @@ First & Last Name : Kossi GBENOU
 LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 
-## ENONCE
+### ENONCE
 
 L'énoncé du présent projet se présente comme suit :
 
 > ![00 :: Enoncé du projet] ![](images/00-enonce/00-enonce.jpg)
 
 
-## LES BESOINS
+### LES BESOINS
 
 
-## LE PLAN DE TRAVAIL
+### LE PLAN DE TRAVAIL
 
 
-## L'ORGANISATION DU REPERTOIRE DE TRAVAIL
+### L'ORGANISATION DU REPERTOIRE DE TRAVAIL
 
 
-## REALISATION ETAPE PAR ETAPE
+### REALISATION ETAPE PAR ETAPE
 
 
-### ETAPE N°1 : 
+#### ETAPE N°1 : 
 
