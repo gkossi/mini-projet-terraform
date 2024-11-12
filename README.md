@@ -20,7 +20,11 @@ L'énoncé du présent projet se présente comme suit :
 
 ### PREREQUIS
 
+<div align="center">
+	<p>
 <a href="https://www.terraform.io/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original-wordmark.svg" width="300" height="300"/></a>
+</p>
+</div>
 
 ### LE PLAN DE TRAVAIL
 
