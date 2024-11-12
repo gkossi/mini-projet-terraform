@@ -1,4 +1,4 @@
-# MINI-PROJET-TERRAFORM : PROJECT BASED ON STUDENT-LIST PROJECT
+# MINI-PROJET-TERRAFORM
 
 ### INFORMATIONS A PROPOS DE L'AUTEUR
 
@@ -18,7 +18,7 @@ L'énoncé du présent projet se présente comme suit :
 > ![00 :: Enoncé du projet] ![](images/00-enonce/00-enonce.jpg)
 
 
-### LES BESOINS
+### PREREQUIS
 
 
 ### LE PLAN DE TRAVAIL
