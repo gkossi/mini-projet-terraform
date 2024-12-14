@@ -2,3 +2,8 @@ HELP.md
 
 ### Directories ###
 .git/
+
+app/.terraform/
+app/*.tfstate
+app/*.backup
+app/*.hcl
