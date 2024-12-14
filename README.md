@@ -30,6 +30,9 @@ Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et auss
 </p>
 </div-->
 
+## METHOLOGIE ET BONNES PRATIQUES
+Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologie à laquelle il est aussi important d'associer des bonnes pratiques. Dans le cadre de ce projet, voici notre méthodologie ainsi que les bonnes pratiques associées :
+
 ## MON PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
 1. Etape N°1 : Pour commencer, on va d'abord créer le bucket S3 qui va servir de backend pour stocker le fichier terraform.tfstate.
 2. Etape N°2 : Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète :
@@ -52,11 +55,5 @@ Amazon S3 -> Create bucket
 
 > ![Création du bucket S3 (Suite)] ![](./images/02-buckets3/2-bucket-creation2.jpg)
 
-### L'ORGANISATION DU REPERTOIRE DE TRAVAIL
-
-
-### REALISATION ETAPE PAR ETAPE
-
-
-#### ETAPE N°1 : 
+### Etape N°2 : Création des modules
 
