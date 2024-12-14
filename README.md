@@ -22,7 +22,7 @@ L'énoncé du présent projet se présente comme suit :
 
 Pour réaliser ce projet, il faut identifier les prérequis et aussi construire le worklow. Cette étape est illustrée sur l'image suivante  :
 
-> ![01 :: PREREQUIS & WORKFLOW] ![](images/01-diagramme/DiagrammeMiniProjetTerraform.svg)
+> ![01 :: PREREQUIS & WORKFLOW] ![](images/01-diagramme/DiagrammeMiniProjetTerraform.jpg)
 <!--div align="center">
 	<p>
 <a href="https://www.terraform.io/" target="_blank"><img src="https://github.com/devicons/devicon/blob/v2.16.0/icons/terraform/terraform-original-wordmark.svg" width="300" height="300"/></a>
