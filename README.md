@@ -1,6 +1,6 @@
 # MINI-PROJET-TERRAFORM : Déployez une infra complète
 
-### INFORMATIONS A PROPOS DE L'AUTEUR
+## INFORMATIONS A PROPOS DE L'AUTEUR
 
 Session           : Bootcamp DevOps N°15
 
@@ -11,14 +11,14 @@ First & Last Name : Kossi GBENOU
 LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 
-### ENONCE
+## ENONCE
 
 L'énoncé du présent projet se présente comme suit :
 
 > ![00 :: Enoncé du projet] ![](images/00-enonce/00-enonce.jpg)
 
 
-### PREREQUIS & WORKFLOW
+## PREREQUIS & WORKFLOW
 
 Pour réaliser ce projet, il faut identifier les prérequis et aussi construire le worklow. Cette étape est illustrée sur l'image suivante  :
 
@@ -30,8 +30,21 @@ Pour réaliser ce projet, il faut identifier les prérequis et aussi construire 
 </p>
 </div-->
 
-### LE PLAN DE TRAVAIL
+## MON PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
+1. Il faut d'abord commencer par créer le bucket S3 qui va servir de backend pour stocker le fichier terraform.tfstate
+2. Créer le module permettant de provisionner l'instance EC2 :
+	- Créer un répertoire nommé ***modules*** et y créer à l'intérieur un sous-répertoire nommé ***ec2module*** qui va contenir les fichiers manifests pour le module EC2.
+	- Créer un fichier ***variables.tf*** pour variabiliser les éléments nécessaires notamment : le type d'instance,le tag et le groupe de securité
+	- Créer un fichier ***main.tf*** qui va contenir l'ensemble des éléments non sensibles notamment : le data source, l'instance EC2, le groupe de sécurité et l'adresse ip publique
+3. Créer les différents environnement à provisionner :
+	- Pour l'environnement de DEV :
+		- Créer un répertoire nommé ***dev*** qui va contenir les fichiers manifests
+		- Créer un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2)
+	- Pour l'environnement de PROD :
+		- Créer un répertoire nommé ***dev*** qui va contenir les fichiers manifests
+		- Créer un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles notamment : le provider (aws) et le backend (S3)
 
+## REALISATIONS ETAPE PAR ETAPE
 
 ### L'ORGANISATION DU REPERTOIRE DE TRAVAIL
 
