@@ -42,6 +42,16 @@ Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et auss
 
 ## REALISATIONS ETAPE PAR ETAPE
 
+### Etape N°1 : Création du bucket S3
+Comme prévu dans le plan de travail, on va commencer par créer le buckect S3 qui va servir à stocker le state file de notre projet.
+
+```bash
+Amazon S3 -> Create bucket
+```
+> ![Création du bucket S3] ![](./images/02-buckets3/1-bucket-creation1.jpg)
+
+> ![Création du bucket S3 (Suite)] ![](./images/02-buckets3/2-bucket-creation2.jpg)
+
 ### L'ORGANISATION DU REPERTOIRE DE TRAVAIL
 
 
