@@ -33,6 +33,17 @@ Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et auss
 ## METHOLOGIE ET BONNES PRATIQUES
 Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologie à laquelle il est aussi important d'associer des bonnes pratiques. Dans le cadre de ce projet, voici notre méthodologie ainsi que les bonnes pratiques associées :
 
+1. Nous allons stocker le state file de l'infra sur un remote backend (S3);
+2. Nous allons utiliser un compte IAM avec les droits Admin sur AWS;
+3. Nous allons fournir les paramètres (***ACCESS KEY*** et ***SECRET KEY***) d'accès au compte à partir du paramètre ***shared_credentials_files***;
+3. Nous allons fournir la paire de clé (***PRIVATE_KEY***) permettant de se connecter à l'infra à partir du protocole SSH en utilisant la fonction ***file***;
+4. Les dossiers du projet seront organisés de la facon suivantes :
+	- Le dossier **modules**: comme son nom l'indique, c'est lui qui va contenir nos différents modules (EC2, EBS, EIP, SG);
+	- Le dossier **app**: va représenter la principale infra à provisionner. Il va contenir le manifest principal où seront appelés nos différents modules;
+	- Le dossier **images**: va servir à stocker les différentes catpures d'écran des réalisations;
+	- Le fichier **.gitignore**: va contenir les infos sur les répertoires et fichiers à ignorer lors du Push du projet sur le SCM;
+	- Le fichier **infos_ec2.txt**: va servir à enregistrer les infos sur les répertoires et fichiers à ignorer lors du Push du projet sur le SCM;
+
 ## MON PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
 1. Etape N°1 : Pour commencer, on va d'abord créer le bucket S3 qui va servir de backend pour stocker le fichier terraform.tfstate.
 2. Etape N°2 : Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète :
