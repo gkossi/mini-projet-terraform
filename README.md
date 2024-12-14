@@ -31,18 +31,14 @@ Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et auss
 </div-->
 
 ## MON PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
-1. Il faut d'abord commencer par créer le bucket S3 qui va servir de backend pour stocker le fichier terraform.tfstate
-2. Créer le module permettant de provisionner l'instance EC2 :
-	- Créer un répertoire nommé ***modules*** et y créer à l'intérieur un sous-répertoire nommé ***ec2module*** qui va contenir les fichiers manifests pour le module EC2.
-	- Créer un fichier ***variables.tf*** pour variabiliser les éléments nécessaires notamment : le type d'instance,le tag et le groupe de securité
-	- Créer un fichier ***main.tf*** qui va contenir l'ensemble des éléments non sensibles notamment : le data source, l'instance EC2, le groupe de sécurité et l'adresse ip publique
-3. Créer les différents environnement à provisionner :
-	- Pour l'environnement de DEV :
-		- Créer un répertoire nommé ***dev*** qui va contenir les fichiers manifests
-		- Créer un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2)
-	- Pour l'environnement de PROD :
-		- Créer un répertoire nommé ***dev*** qui va contenir les fichiers manifests
-		- Créer un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles notamment : le provider (aws) et le backend (S3)
+1. Etape N°1 : Pour commencer, on va d'abord créer le bucket S3 qui va servir de backend pour stocker le fichier terraform.tfstate.
+2. Etape N°2 : Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète :
+	- Créer un répertoire nommé ***modules*** à la racine du projet et y créer à l'intérieur un sous-répertoire pour chacun des module ***ec2***, ***ebs***, ***eip*** et ***sg*** qui vont contenir les fichiers manifests.
+	- Créer dans chacun des sous-répertoires un fichier ***variables.tf*** pour variabiliser les éléments nécessaires notamment : le type d'instance,le tag et le groupe de securité
+	- Créer dans chacun des sous-répertoires un fichier ***main.tf*** qui va contenir l'ensemble des éléments non sensibles notamment : le data source, l'instance EC2, le volume EBS, le groupe de sécurité et l'adresse ip publique
+3. Etape N°3 : Créer l'environnement (APP) à provisionner :
+	- Créer un répertoire nommé ***app*** à la racine du projet qui va contenir les fichiers manifests
+	- Créer à l'intérieur du répertoire ***app***, un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2)
 
 ## REALISATIONS ETAPE PAR ETAPE
 
