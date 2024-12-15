@@ -45,8 +45,8 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	- Le fichier **infos_ec2.txt**: va servir à enregistrer certaines infos utiles de notre infra comme : PUBLIC IP, ID et AZ.
 
 ## PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
-1. Etape N°1 : Pour commencer, on va d'abord créer le bucket S3 ;
-2. Etape N°2 : Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète :
+1. Etape N°1 : Pour commencer, nous allons d'abord créer le bucket S3 ;
+2. Etape N°2 : Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète. Pour se faire, nous allons procéder comme suit :
 	- Créer un répertoire nommé ***modules*** à la racine du projet et y créer à l'intérieur un sous-répertoire pour chacun des module ***ec2***, ***ebs***, ***eip*** et ***sg*** qui vont contenir les fichiers manifests ;
 	- Créer dans chacun des sous-répertoires un fichier ***variables.tf*** pour variabiliser les éléments nécessaires notamment : le type d'instance, le tag et le groupe de securité ;
 	- Créer dans chacun des sous-répertoires un fichier ***main.tf*** qui va contenir l'ensemble des éléments non sensibles notamment : le data source, l'instance EC2, le volume EBS, le groupe de sécurité et l'adresse ip publique ;
