@@ -59,7 +59,7 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 ## REALISATIONS ETAPE PAR ETAPE
 
 ### Etape N°1 : Création du bucket S3
-Comme prévu dans le plan de travail, on va commencer par créer le buckect S3 qui va servir à stocker le state file de notre projet.
+Comme prévu dans notre plan de travail, on va commencer par créer le buckect S3 qui va servir à stocker le state file de notre projet.
 
 ```bash
 Amazon S3 -> Create bucket
