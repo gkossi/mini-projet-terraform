@@ -56,9 +56,9 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	│   ├── outputs.tf     │   ├── outputs.tf     │   ├── outputs.tf     │   ├── outputs.tf
 	│   └── variables.tf   │   └── variables.tf   │   └── variables.tf   │   └── variables.tf
 	```
-		- ***variables.tf*** : va servir à variabiliser les éléments nécessaires notamment le type d'instance, le tag et le groupe de securité ;
-		- ***main.tf*** : va contenir l'ensemble des éléments non sensibles notamment le data source, l'instance EC2, le volume EBS, le groupe de sécurité et l'adresse ip publique ;
-		- ***outputs.tf*** : va servir à rendre accessibles certaines valeurs à utiliser par d'autres modules
+	- ***variables.tf*** : va servir à variabiliser les éléments nécessaires notamment le type d'instance, le tag et le groupe de securité ;
+	- ***main.tf*** : va contenir l'ensemble des éléments non sensibles notamment le data source, l'instance EC2, le volume EBS, le groupe de sécurité et l'adresse ip publique ;
+	- ***outputs.tf*** : va servir à rendre accessibles certaines valeurs à utiliser par d'autres modules
 3. Etape N°3 : Créer l'environnement (APP) à provisionner :
 	- Créer un répertoire nommé ***app*** à la racine du projet qui va contenir les fichiers manifests ;
 	- Créer à l'intérieur du répertoire ***app***, un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2).
