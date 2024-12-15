@@ -69,4 +69,9 @@ Amazon S3 -> Create bucket
 > ![Création du bucket S3 (Suite)] ![](./images/02-buckets3/2-bucket-creation2.jpg)
 
 ### Etape N°2 : Création des modules
+<!--div>
+Création des dossiers et fichiers :
+mkdir -p mini-projet-terraform && cd mini-projet-terraform 
+mkdir -p app modules/{ec2,eip,ebs,sg}
+</div-->
 
