@@ -42,7 +42,7 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	- Le dossier **app**: va représenter notre principale infra à provisionner. Il va contenir le manifest principal où seront appelés nos différents modules ;
 	- Le dossier **images**: va servir à stocker les différentes catpures d'écran des réalisations;
 	- Le fichier **.gitignore**: va contenir les infos sur les répertoires et fichiers à ignorer lors du Push du projet sur notre SCM;
-	- Le fichier **infos_ec2.txt**: va servir à enregistrer certaines infos utiles de notre infra comme : PUBLIC IP, ID et AZ ;
+	- Le fichier **infos_ec2.txt**: va servir à enregistrer certaines infos utiles de notre infra comme : PUBLIC IP, ID et AZ.
 
 ## PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
 1. Etape N°1 : Pour commencer, on va d'abord créer le bucket S3 qui va servir de backend pour stocker le fichier terraform.tfstate ;
