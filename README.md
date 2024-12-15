@@ -56,6 +56,7 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	│   ├── outputs.tf     │   ├── outputs.tf     │   ├── outputs.tf     │   ├── outputs.tf
 	│   └── variables.tf   │   └── variables.tf   │   └── variables.tf   │   └── variables.tf
 	```
+	
 	- ***variables.tf*** : va servir à variabiliser les éléments nécessaires notamment le type d'instance, le tag et le groupe de securité ;
 	- ***main.tf*** : va contenir l'ensemble des éléments non sensibles notamment le data source, l'instance EC2, le volume EBS, le groupe de sécurité et l'adresse ip publique ;
 	- ***outputs.tf*** : va servir à rendre accessibles certaines valeurs à utiliser par d'autres modules
