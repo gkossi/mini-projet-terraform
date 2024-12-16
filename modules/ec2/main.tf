@@ -1,84 +1,49 @@
-data "aws_ami" "app_ami" {
+# Obtenir dynamiquement la dernière version de ubuntu bionic
+data "aws_ami" "ubuntu_bionic" {
   most_recent = true
-  owners      = ["amazon"]
+  owners      = ["099720109477"] # ID du propriétaire officiel des AMIs Ubuntu dans AWS
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
   }
 }
 
+# Définition de l'instance EC2 à déployer
 resource "aws_instance" "myec2" {
-  ami             = data.aws_ami.app_ami.id
-  instance_type   = var.instance_type
-  tags            = var.aws_common_tag
-  key_name        = "expertdevops" # devops-kossi
-  security_groups = ["${aws_security_group.tp6_allow_ssh_http_https.name}"]
+  ami             = data.aws_ami.ubuntu_bionic.id
+  instance_type   = var.ec2_instance_type
+  tags            = var.ec2_common_tag
+  key_name        = var.ec2_key_name #"expertdevops" devops-kossi
+  security_groups = ["${var.aws_sg}"]
 
+  # Connexion à la VM et installation de nginx
   provisioner "remote-exec" {
     inline = [
-      "sudo amazon-linux-extras install -y nginx1.12",
-      "sudo systemctl start nginx"
+      "sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx",
+      "sudo echo <center><h1>Hello Eazytraining !!!</h1><h2>Bienvenue dans le Mini-Projet Terraform réalisé par Kossi GBENOU !</h2></center> > /usr/share/nginx/html/index.html"
     ]
 
     connection {
       type        = "ssh"
-      user        = "ec2-user"
-      private_key = file("C:/Users/BORIS/Downloads/expertdevops.pem")
+      user        = var.ec2_user
+      private_key = file("C:/Users/BORIS/Downloads/${var.ec2_key_name}.pem")
       host        = self.public_ip
     }
   }
+
+  # Enregistrement des informations (ip publique, ID et AZ) de la VM dans un fichier en local sur mon PC
+  provisioner "local-exec" {
+    command = "echo PUBLIC IP: ${self.public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
+  }
+
+  # Supression automatique des volumes supplémentaires associés à notre VM
   root_block_device {
     delete_on_termination = true
   }
 
-}
-
-resource "aws_security_group" "tp6_allow_ssh_http_https" {
-  name        = var.sg_name
-  description = "Allow ssh, http and https inbound traffics and all other outbound trafics"
-
-  # Règle pour autoriser le trafic entrant HTTP (port 80)
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
-  }
-
-  # Règle pour autoriser le trafic entrant HTTP (port 443)
-  ingress {
-    description = "http from VPC"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
-  }
-
-  # Règle pour autoriser le trafic entrant SSH (port 22)
-  ingress {
-    description = "ssh from VPC"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
-  }
-
-  # Règle pour autoriser tout type de trafic sortant
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
-  }
-
-}
-
-resource "aws_eip" "public-ip" {
-  instance = aws_instance.myec2.id
-  domain   = "vpc"
-  provisioner "local-exec" {
-    command = "echo PUBLIC IP: ${self.public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
-  }
 }
