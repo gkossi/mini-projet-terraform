@@ -364,3 +364,29 @@ output "sg-name" {
   value = aws_security_group.mysg.name
 }
 ```
+
+### Etape N°3 : Création de l'environnement (APP) à provisionner : Utilisation des modules
+
+Ici, il s'agira de la mise en place de notre infra principale.
+Comme décrit précédemment, nous allons créer un répertoire nommé ***app*** à la racine du projet qui va contenir les fichiers manifests (***variables.tf*** et ***main.tf***) ainsi que le fichier ***infos_ec2.txt***.
+Le contenu des fichiers se présente comme suit :
+
+- Le fichier ***variables.tf*** :
+
+```bash
+
+```
+
+- Le fichier ***main.tf*** :
+
+Il va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2).
+
+```bash
+
+```
+
+- Le fichier ***infos_ec2.txt*** :
+
+```bash
+
+```
