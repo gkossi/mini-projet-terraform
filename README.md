@@ -15,7 +15,8 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 ![Static Badge](https://img.shields.io/badge/:badgeContent)
 
-![Texte Rouge](https://img.shields.io/badge/Texte-Rouge)
+![Texte Rouge](https://img.shields.io/badge/Texte-Rouge-red)
+![](https://img.shields.io/badge/Texte)
 
 
 L'énoncé du présent projet se présente comme suit :
