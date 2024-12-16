@@ -24,12 +24,6 @@ variable "ec2_key_name" {
   description = "La paire de clé de l'instance EC2"
 }
 
-variable "ec2_public_ip" {
-  type = string
-  default = "ec2-eip"
-  description = "L'adresse ip publique de l'instance EC2"
-}
-
 variable "aws_sg" {
   type        = string
   default     = "mini-projet-terraform-sg"
