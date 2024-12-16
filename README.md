@@ -86,7 +86,7 @@ mkdir -p app modules/{ec2,eip,ebs,sg}
 
 1. Module EC2 :
 
-Ce module permet de déployer une instance EC2.
+Ce module permet de déployer une machine virtuelle EC2.
 Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 
 - Le fichier ***variables.tf*** :
