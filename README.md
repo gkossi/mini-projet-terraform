@@ -16,8 +16,15 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 ![Texte Rouge](https://img.shields.io/badge/Texte-Rouge-red)
 
 ![ENONCE](https://img.shields.io/badge/ENONCE-red)
+
 ![ENONCE](https://img.shields.io/badge/ENONCE?style=for-the-badge&color=red)
+
+![Texte en gras et coloré](https://img.shields.io/badge/Texte--en--gras-rouge?style=for-the-badge&color=red)
+
 <p style="color:green; font-size:22px; font-weight:bold;">ENONCE</p>
+
+<p style="color:green; font-size:22px; font-weight:bold;">Texte en gras, vert, et grand</p>
+
 
 
 
