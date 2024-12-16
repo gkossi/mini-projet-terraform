@@ -19,7 +19,7 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 #
 ![ENONCE](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
-![ENONCE](https://img.shields.io/badge/PREREQUIS%20%26%20WORKFLOW-red?style=for-the-badge)
+![ENONCE](https://img.shields.io/badge/ENONCE-red?style=for-the-badge)
 
 L'énoncé du présent projet se présente comme suit :
 
