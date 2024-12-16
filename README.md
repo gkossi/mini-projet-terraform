@@ -17,7 +17,7 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 ![ENONCE](https://img.shields.io/badge/ENONCE-red)
 
-![ENONCE](https://img.shields.io/badge/ENONCE?style=for-the-badge&color=red)
+![ENONCE](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
 
 ![Texte en gras et coloré](https://img.shields.io/badge/Texte--en--gras-rouge?style=for-the-badge&color=red)
 
