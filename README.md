@@ -19,16 +19,18 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 #
 ![ENONCE](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
+![ENONCE](https://img.shields.io/badge/PREREQUIS%20%26%20WORKFLOW-red?style=for-the-badge)
 
 L'énoncé du présent projet se présente comme suit :
 
 > ![00 :: Enoncé du projet] ![](images/00-enonce/00-enonce.jpg)
 
+<!--
+	URL Encode online
+	https://www.urlencoder.io/ 
+-->
 #
-
-![Statut](https://img.shields.io/badge/Statut-En+ligne+%26+Disponible%21-green?style=for-the-badge)
-
-![Statut](https://img.shields.io/badge/PREREQUIS%20%26%20WORKFLOW-red?style=for-the-badge)
+![PREREQUIS & WORKFLOW](https://img.shields.io/badge/PREREQUIS%20%26%20WORKFLOW-red?style=for-the-badge)
 
 Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et aussi construire un worklow. Cette étape est illustrée sur l'image suivante  :
 
