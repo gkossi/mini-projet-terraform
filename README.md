@@ -27,6 +27,8 @@ L'énoncé du présent projet se présente comme suit :
 #
 ![Texte affiché](https://img.shields.io/badge/PREREQUIS-ET-WORKFLOW-red?style=for-the-badge)
 
+![Statut](https://img.shields.io/badge/Statut-En+ligne-red?style=flat-square)
+
 Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et aussi construire un worklow. Cette étape est illustrée sur l'image suivante  :
 
 > ![01 :: PREREQUIS & WORKFLOW] ![](images/01-diagramme/DiagrammeMiniProjetTerraform.jpg)
