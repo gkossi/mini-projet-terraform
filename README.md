@@ -18,7 +18,6 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 -->
 
 #
-![ENONCE](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
 ![ENONCE](https://img.shields.io/badge/ENONCE-red?style=for-the-badge)
 
 L'énoncé du présent projet se présente comme suit :
@@ -42,7 +41,8 @@ Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et auss
 </p>
 </div-->
 
-## METHODLOGIE ET BONNES PRATIQUES
+##
+![METHODLOGIE ET BONNES PRATIQUES](https://img.shields.io/badge/METHODLOGIE%20ET%20BONNES%20PRATIQUES-red?style=for-the-badge)
 Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologie à laquelle il est aussi important d'associer des bonnes pratiques. Dans le cadre de ce projet, voici notre méthodologie ainsi que les bonnes pratiques associées :
 
 1. Nous allons stocker le state file de l'infra sur un remote backend (S3) ;
