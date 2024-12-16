@@ -18,7 +18,7 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 -->
 
 #
-![ENONCE](https://img.shields.io/badge/ENONCE-bleu?style=for-the-badge&color=blue)
+![ENONCE](https://img.shields.io/badge/ENONCE?style=for-the-badge&color=blue)
 
 L'énoncé du présent projet se présente comme suit :
 
