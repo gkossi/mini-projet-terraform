@@ -296,3 +296,81 @@ output "ec2_eip" {
   value = aws_eip.ec2_public_ip.public_ip
 }
 ```
+
+#
+3. **Module SG :**
+#
+Ce module permet de créer un groupe de sécurité et de l'associer à notre machine virtuelle EC2.
+Le contenu des trois (03) fichiers de ce module se présentent comme suit :
+
+- Le fichier ***variables.tf*** :
+
+```bash
+variable "sg_name" {
+  type        = string
+  default     = "allow_http_https_ssh"
+  description = "Le nom du groupe de sécurité"
+}
+
+variable "sg_common_tag" {
+  type        = map(string)
+  default = {
+    Name  = "sg-mini-projet-terraform"
+  }
+  description = "Le tag sur le groupe de sécurité"
+}
+```
+
+- Le fichier ***main.tf*** :
+
+```bash
+# Définition du groupe de sécurité à appliquer à notre infrastructure
+resource "aws_security_group" "mysg" {
+  name        = var.sg_name
+  tags        = var.sg_common_tag
+  description = "Autorisation des trafiques entrants et sortants"
+
+  # Règle pour autoriser le trafic entrant en HTTPS (port 443)
+  ingress {
+    description = "TLS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+  }
+
+  # Règle pour autoriser le trafic entrant en HTTP (port 80)
+  ingress {
+    description = "http from VPC"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+  }
+
+  # Règle pour autoriser le trafic entrant en SSH (port 22)
+  ingress {
+    description = "ssh from VPC"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+  }
+
+  # Règle pour autoriser tout type de trafic sortant de la VM
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+  }
+}
+```
+
+- Le fichier ***outputs.tf*** :
+
+```bash
+output "sg-name" {
+  value = aws_security_group.mysg.name
+}
+```
