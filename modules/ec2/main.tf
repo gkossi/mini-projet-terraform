@@ -18,7 +18,7 @@ resource "aws_instance" "myec2" {
   ami             = data.aws_ami.ubuntu_bionic.id
   instance_type   = var.ec2_instance_type
   tags            = var.ec2_common_tag
-  key_name        = var.ec2_key_name #"expertdevops" devops-kossi
+  key_name        = var.ec2_key_name
   security_groups = ["${var.aws_sg}"]
 
   # Connexion à la VM et installation de nginx

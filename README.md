@@ -95,7 +95,7 @@ Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 ```bash
 variable "ec2_instance_type" {
   type        = string
-  default     = "t2.nano"
+  default     = "t2.micro"
   description = "Configuration du type d'instance AWS"
 }
 
@@ -117,12 +117,6 @@ variable "ec2_key_name" {
   type    = string
   default = "expertdevops"
   description = "La paire de clé de l'instance EC2"
-}
-
-variable "ec2_public_ip" {
-  type = string
-  default = "ec2-eip"
-  description = "L'adresse ip publique de l'instance EC2"
 }
 
 variable "aws_sg" {
@@ -155,7 +149,7 @@ resource "aws_instance" "myec2" {
   ami             = data.aws_ami.ubuntu_bionic.id
   instance_type   = var.ec2_instance_type
   tags            = var.ec2_common_tag
-  key_name        = var.ec2_key_name #"expertdevops" devops-kossi
+  key_name        = var.ec2_key_name
   security_groups = ["${var.aws_sg}"]
 
   # Connexion à la VM et installation de nginx
