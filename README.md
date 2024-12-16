@@ -28,7 +28,7 @@ L'énoncé du présent projet se présente comme suit :
 
 ![Statut](https://img.shields.io/badge/Statut-En+ligne+%26+Disponible%21-green?style=for-the-badge)
 
-![Statut](https://img.shields.io/badge/Statut %26 En ligne %21-red?style=for-the-badge)
+![Statut](https://img.shields.io/badge/PREREQUIS%20%26%20WORKFLOW-red?style=for-the-badge)
 
 Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et aussi construire un worklow. Cette étape est illustrée sur l'image suivante  :
 
