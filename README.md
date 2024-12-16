@@ -12,6 +12,8 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 
 ## ENONCE
+![Static Badge](https://img.shields.io/badge/:badgeContent)
+
 
 L'énoncé du présent projet se présente comme suit :
 
