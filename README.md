@@ -83,9 +83,9 @@ Création des dossiers et fichiers :
 mkdir -p mini-projet-terraform && cd mini-projet-terraform 
 mkdir -p app modules/{ec2,eip,ebs,sg}
 </div-->
-
+#
 1. Module EC2 :
-
+#
 Ce module permet de déployer une machine virtuelle EC2.
 Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 
@@ -198,5 +198,53 @@ output "ec2_public_ip" {
 
 output "ec2_az" {
   value = aws_instance.myec2.availability_zone
+}
+```
+#
+2. Module EBS :
+#
+Ce module permet de déployer un volume EBS à associer à notre machine virtuelle EC2.
+Le contenu des trois (03) fichiers de ce module se présentent comme suit :
+
+- Le fichier ***variables.tf*** :
+
+```bash
+variable "ebs_az" {
+  type        = string
+  default     = "us-east-1a"
+  description = "La zone de disponibilité de l'EBS"
+}
+
+variable "ebs_common_tag" {
+  type = map(string)
+  default = {
+    Name = "ebs-mini-projet-terraform"
+  }
+  description = "Le tag sur l'EBS"
+}
+
+variable "ebs_size" {
+  type        = number
+  default     = 10
+  description = "La taille de l'EBS"
+}
+```
+
+- Le fichier ***main.tf*** :
+
+```bash
+# Définition de l'EBS
+resource "aws_ebs_volume" "myec2_ebs" {
+  availability_zone = var.ebs_az
+  tags              = var.ebs_common_tag
+  size              = var.ebs_size
+}
+```
+
+- Le fichier ***outputs.tf*** :
+
+```bash
+output "ec2_ebs_id" {
+  value = aws_ebs_volume.myec2_ebs.id
 }
 ```
