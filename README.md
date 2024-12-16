@@ -85,7 +85,7 @@ mkdir -p app modules/{ec2,eip,ebs,sg}
 </div-->
 #
 1. Module EC2 :
-#
+
 Ce module permet de déployer une machine virtuelle EC2.
 Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 
@@ -202,7 +202,7 @@ output "ec2_az" {
 ```
 #
 2. Module EBS :
-#
+
 Ce module permet de déployer un volume EBS à associer à notre machine virtuelle EC2.
 Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 
