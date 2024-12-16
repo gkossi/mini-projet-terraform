@@ -10,19 +10,15 @@ First & Last Name : Kossi GBENOU
 
 LinkedIn          : https://www.linkedin.com/in/gkossi/
 
-
+<!--
 ## ENONCE
-
 ![Texte Rouge](https://img.shields.io/badge/Texte-Rouge-red)
-
 ![ENONCE](https://img.shields.io/badge/ENONCE-red)
+![ENONCE](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
+-->
 
 ![ENONCE](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
-
-![Texte en gras et coloré](https://img.shields.io/badge/Texte--en--gras-rouge?style=for-the-badge&color=red)
-
-![Texte en gras et coloré](https://img.shields.io/badge/ENONCE-rouge?style=for-the-badge&color=red)
-
+#
 L'énoncé du présent projet se présente comme suit :
 
 > ![00 :: Enoncé du projet] ![](images/00-enonce/00-enonce.jpg)
