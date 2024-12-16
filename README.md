@@ -80,7 +80,7 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	- Créer à l'intérieur du répertoire ***app***, un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2).
 
 #
-![REALISATIONS ETAPE PAR ETAPE](https://img.shields.io/badge/REALISATIONS%20ETAPE%20PAR%20ETAPE-red?style=for-the-badge)
+![REALISATIONS ETAPE PAR ETAPE](https://img.shields.io/badge/REALISATIONS%20ETAPE%20PAR%20ETAPE-white?style=for-the-badge)
 
 ### Etape N°1 : Création du bucket S3
 Comme prévu dans notre plan de travail, on va commencer par créer le buckect S3 qui va servir à stocker le state file de notre projet.
