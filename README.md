@@ -41,7 +41,7 @@ Pour réaliser ce projet, il faut tout d'abord identifier les prérequis et auss
 </p>
 </div-->
 
-##
+#
 ![METHODLOGIE ET BONNES PRATIQUES](https://img.shields.io/badge/METHODLOGIE%20ET%20BONNES%20PRATIQUES-red?style=for-the-badge)
 
 Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologie à laquelle il est aussi important d'associer des bonnes pratiques. Dans le cadre de ce projet, voici notre méthodologie ainsi que les bonnes pratiques associées :
@@ -57,7 +57,9 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	- Le fichier **.gitignore**: va contenir les infos sur les répertoires et fichiers à ignorer lors du Push du projet sur notre SCM;
 	- Le fichier **infos_ec2.txt**: va servir à enregistrer certaines infos utiles de notre infra comme : PUBLIC IP, ID et AZ.
 
-## PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES
+#
+![PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES](https://img.shields.io/badge/PLAN%20DE%20TRAVAIL%20%3A%20%20LES%20OPERATIONS%20A%20EFFECTUEES-red?style=for-the-badge)
+
 1. Etape N°1 : Pour commencer, nous allons d'abord créer le bucket S3 ;
 2. Etape N°2 : Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète. Pour se faire, nous allons procéder comme suit :
 	- Créer un répertoire nommé ***modules*** à la racine du projet et y créer à l'intérieur un sous-répertoire pour chacun des module ***ec2***, ***ebs***, ***eip*** et ***sg*** qui vont contenir les fichiers manifests ;
@@ -77,7 +79,8 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	- Créer un répertoire nommé ***app*** à la racine du projet qui va contenir les fichiers manifests ;
 	- Créer à l'intérieur du répertoire ***app***, un fichier ***main.tf*** qui va contenir l'ensemble des éléments sensibles (le provider aws et le backend S3) et non sensibles (l'appel du module EC2).
 
-## REALISATIONS ETAPE PAR ETAPE
+#
+![REALISATIONS ETAPE PAR ETAPE](https://img.shields.io/badge/REALISATIONS%20ETAPE%20PAR%20ETAPE-red?style=for-the-badge)
 
 ### Etape N°1 : Création du bucket S3
 Comme prévu dans notre plan de travail, on va commencer par créer le buckect S3 qui va servir à stocker le state file de notre projet.
