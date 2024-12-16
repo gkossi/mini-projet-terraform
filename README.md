@@ -16,6 +16,8 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 ![Texte Rouge](https://img.shields.io/badge/Texte-Rouge-red)
 
 ![Texte Rouge](https://img.shields.io/badge/ENONCE-red)
+![Texte en gras et coloré](https://img.shields.io/badge/Texte--en--gras-rouge?style=for-the-badge&color=red)
+
 
 
 L'énoncé du présent projet se présente comme suit :
