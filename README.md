@@ -298,7 +298,7 @@ output "ec2_eip" {
 ```
 
 #
-3. **Module SG :**
+4. **Module SG :**
 #
 Ce module permet de créer un groupe de sécurité et de l'associer à notre machine virtuelle EC2.
 Le contenu des trois (03) fichiers de ce module se présentent comme suit :
