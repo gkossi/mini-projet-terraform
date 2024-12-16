@@ -21,7 +21,11 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 ![Texte en gras et coloré](https://img.shields.io/badge/Texte--en--gras-rouge?style=for-the-badge&color=red)
 
-<div><p style="color:green; font-size:22px; font-weight:bold;">ENONCE</p></div>
+<div>
+	<p style="color:green; font-size:22px; font-weight:bold;">
+		ENONCE
+	</p>
+</div>
 
 <div><p style="color:green; font-size:22px; font-weight:bold;">Texte en gras, vert, et grand</p></div>
 
