@@ -13,11 +13,9 @@ LinkedIn          : https://www.linkedin.com/in/gkossi/
 
 ## ENONCE
 
-![Static Badge](https://img.shields.io/badge/:badgeContent)
-
 ![Texte Rouge](https://img.shields.io/badge/Texte-Rouge-red)
 
-![Texte Rouge](https://img.shields.io/badge/Texte-red)
+![Texte Rouge](https://img.shields.io/badge/ENONCE-red)
 
 
 L'énoncé du présent projet se présente comme suit :
