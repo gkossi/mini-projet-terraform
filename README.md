@@ -83,6 +83,7 @@ Création des dossiers et fichiers :
 mkdir -p mini-projet-terraform && cd mini-projet-terraform 
 mkdir -p app modules/{ec2,eip,ebs,sg}
 </div-->
+
 #
 1. **Module EC2 :**
 #
@@ -200,6 +201,7 @@ output "ec2_az" {
   value = aws_instance.myec2.availability_zone
 }
 ```
+
 #
 2. **Module EBS :**
 #
@@ -246,5 +248,51 @@ resource "aws_ebs_volume" "myec2_ebs" {
 ```bash
 output "ec2_ebs_id" {
   value = aws_ebs_volume.myec2_ebs.id
+}
+```
+
+#
+3. **Module EIP :**
+#
+Ce module permet d'obtenir dynamiquement une adresse ip publique statique et de l'associer à notre machine virtuelle EC2.
+Le contenu des trois (03) fichiers de ce module se présentent comme suit :
+
+- Le fichier ***variables.tf*** :
+
+```bash
+variable "instance_id" {
+  type        = string
+  description = "ID de l'instance EC2 provenant du module EC2"
+}
+
+variable "eip_common_tag" {
+  type = map(string)
+  default = {
+    Name = "eip-mini-projet-terraform"
+  }
+  description = "Le tag sur l'eip de l'instance ec2"
+}
+```
+
+- Le fichier ***main.tf*** :
+
+```bash
+# Définition de l'adresse ip publique de notre VM EC2
+resource "aws_eip" "ec2_public_ip" {
+  instance = var.instance_id
+  domain   = "vpc"
+  tags = var.eip_common_tag
+}
+```
+
+- Le fichier ***outputs.tf*** :
+
+```bash
+output "ec2_eip_id" {
+  value = aws_eip.ec2_public_ip.id
+}
+
+output "ec2_eip" {
+  value = aws_eip.ec2_public_ip.public_ip
 }
 ```
