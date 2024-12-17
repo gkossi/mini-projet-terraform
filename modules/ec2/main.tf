@@ -21,6 +21,9 @@ resource "aws_instance" "myec2" {
   key_name        = var.ec2_key_name
   security_groups = ["${var.aws_sg}"]
 
+  # S'assurer que l'EBS est attaché
+  # depends_on = [aws_volume_attachment.ebs_attachment]
+
   # Connexion à la VM et installation de nginx
   provisioner "remote-exec" {
     inline = [
