@@ -29,15 +29,9 @@ module "ec2" {
   # Définition de la source du module EC2
   source       = "../modules/ec2"
 
-  # Surcharge des différentes variables définies dans le module
-  # instance_type = "t2.micro"
-  # ec2_instance_type = "t2.micro"
-  aws_sg = module.sg.ec2_security_group_id
-  # ec2_public_ip = module.eip.ec2_eip
-  
-  /* aws_common_tag = {
-    Name = "ec2-prod-kossi"
-  } */
+  # Utilisation des valeurs des paramètres fournis par les modules
+  security_groups = module.sg.mpt_sg_name
+  public_ip = module.eip.eip_public_ip
 
 }
 
@@ -45,7 +39,7 @@ module "ec2" {
 resource "aws_volume_attachment" "myebs_attachement" {
   device_name = "/dev/sdb"
   instance_id = module.ec2.ec2_id
-  volume_id   = module.ebs.ec2_ebs_id
+  volume_id   = module.ebs.ebs_id
 }
 
 # Création de l'EIP : Appel du module eip
@@ -56,5 +50,5 @@ module "eip" {
 # Création de la ressource pour attacher l'EIP' à la VM
 resource "aws_eip_association" "myeip_association" {
   instance_id   = module.ec2.ec2_id
-  allocation_id = module.eip.ec2_eip_id
+  allocation_id = module.eip.eip_id
 }
