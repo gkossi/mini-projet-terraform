@@ -488,3 +488,4 @@ resource "aws_eip_association" "myeip_association" {
 
 - Le fichier ***infos_ec2.txt*** :
 Ce fichier va servir à enregistrer les informations de la VM après son déploiement.
+
