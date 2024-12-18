@@ -392,10 +392,7 @@ Le contenu des fichiers se présente comme suit :
 
 - Le fichier ***variables.tf*** :
 
-Ce fichier contient l'ensemble des éléments variabilisés 
-![](https://img.shields.io/badge/region%2C%20credentials%2C%20bucket%20et%20bucket_key-blue?style=for-the-badge)
-
-(**region, credentials, bucket et bucket_key**).
+Ce fichier contient l'ensemble des éléments variabilisés (**region, credentials, bucket et bucket_key**).
 
 ```bash
 variable "aws_region" {
