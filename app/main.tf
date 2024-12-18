@@ -14,9 +14,9 @@ terraform {
   }
 }
 
-# Création de la VM : Appel du module ec2
+# Création de la VM : Appel du module EC2
 module "ec2" {
-  # Définition de la source du module
+  # Définition de la source du module EC2
   source       = "../modules/ec2"
 
   # Surcharge des différentes variables définies dans le module
