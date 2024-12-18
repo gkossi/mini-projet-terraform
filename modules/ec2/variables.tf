@@ -24,7 +24,7 @@ variable "ec2_key_name" {
   description = "La paire de clé de l'instance EC2"
 }
 
-variable "aws_sg" {
+variable "ec2_sg" {
   type        = string
   default     = "mini-projet-terraform-sg"
   description = "Le groupe de sécurité"

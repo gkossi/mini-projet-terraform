@@ -19,7 +19,7 @@ resource "aws_instance" "myec2" {
   instance_type   = var.ec2_instance_type
   tags            = var.ec2_common_tag
   key_name        = var.ec2_key_name
-  security_groups = ["${var.aws_sg}"]
+  security_groups = ["${var.ec2_sg}"]
 
   # S'assurer que l'EBS est attaché
   # depends_on = [aws_volume_attachment.ebs_attachment]
