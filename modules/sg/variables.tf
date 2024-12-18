@@ -1,6 +1,6 @@
 variable "sg_name" {
   type        = string
-  default     = "allow_http_https_ssh"
+  default     = "mpt_allow_http_https_ssh"
   description = "Le nom du groupe de sécurité"
 }
 
