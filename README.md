@@ -391,7 +391,9 @@ Comme décrit précédemment, nous allons créer un répertoire nommé ***app***
 Le contenu des fichiers se présente comme suit :
 
 - Le fichier ***variables.tf*** :
+
 Ce fichier contient l'ensemble des éléments variabilisés (region, credentials, bucket et bucket_key).
+
 ```bash
 variable "aws_region" {
   type        = string
