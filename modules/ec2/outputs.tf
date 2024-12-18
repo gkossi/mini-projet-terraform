@@ -10,4 +10,3 @@ output "ec2_az" {
 #ID: ${aws_instance.myec2.id};
 #PUBLIC IP: ${self.public_ip};
 #AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
-  

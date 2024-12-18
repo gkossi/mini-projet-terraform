@@ -135,7 +135,7 @@ variable "ec2_key_name" {
   description = "La paire de clé de l'instance EC2"
 }
 
-variable "aws_sg" {
+variable "ec2_sg" {
   type        = string
   default     = "mini-projet-terraform-sg"
   description = "Le groupe de sécurité"
@@ -166,7 +166,7 @@ resource "aws_instance" "myec2" {
   instance_type   = var.ec2_instance_type
   tags            = var.ec2_common_tag
   key_name        = var.ec2_key_name
-  security_groups = ["${var.aws_sg}"]
+  security_groups = ["${var.ec2_sg}"]
 
   # S'assurer que l'EBS est attaché
   # depends_on = [aws_volume_attachment.ebs_attachment]
@@ -209,6 +209,11 @@ output "ec2_id" {
 output "ec2_az" {
   value = aws_instance.myec2.availability_zone
 }
+
+#PUBLIC IP: 72.44.57.63; ID: i-0d06f322a79058cb5; AZ: us-east-1c 
+#ID: ${aws_instance.myec2.id};
+#PUBLIC IP: ${self.public_ip};
+#AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
 ```
 
 #
@@ -245,7 +250,7 @@ variable "ebs_size" {
 
 ```bash
 # Définition de l'EBS
-resource "aws_ebs_volume" "myec2_ebs" {
+resource "aws_ebs_volume" "myebs" {
   availability_zone = var.ebs_az
   tags              = var.ebs_common_tag
   size              = var.ebs_size
@@ -255,8 +260,8 @@ resource "aws_ebs_volume" "myec2_ebs" {
 - Le fichier ***outputs.tf*** :
 
 ```bash
-output "ec2_ebs_id" {
-  value = aws_ebs_volume.myec2_ebs.id
+output "ebs_id" {
+  value = aws_ebs_volume.myebs.id
 }
 ```
 
@@ -269,7 +274,7 @@ Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 - Le fichier ***variables.tf*** :
 
 ```bash
-variable "instance_id" {
+vvariable "instance_id" {
   type        = string
   description = "ID de l'instance EC2 provenant du module EC2"
 }
@@ -287,7 +292,7 @@ variable "eip_common_tag" {
 
 ```bash
 # Définition de l'adresse ip publique de notre VM EC2
-resource "aws_eip" "ec2_public_ip" {
+resource "aws_eip" "myeip" {
   instance = var.instance_id
   domain   = "vpc"
   tags = var.eip_common_tag
@@ -297,12 +302,12 @@ resource "aws_eip" "ec2_public_ip" {
 - Le fichier ***outputs.tf*** :
 
 ```bash
-output "ec2_eip_id" {
-  value = aws_eip.ec2_public_ip.id
+output "eip_id" {
+  value = aws_eip.myeip.id
 }
 
-output "ec2_eip" {
-  value = aws_eip.ec2_public_ip.public_ip
+output "eip_public_ip" {
+  value = aws_eip.myeip.public_ip
 }
 ```
 
@@ -317,7 +322,7 @@ Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 ```bash
 variable "sg_name" {
   type        = string
-  default     = "allow_http_https_ssh"
+  default     = "mpt_allow_http_https_ssh"
   description = "Le nom du groupe de sécurité"
 }
 
@@ -379,7 +384,7 @@ resource "aws_security_group" "mysg" {
 - Le fichier ***outputs.tf*** :
 
 ```bash
-output "sg-name" {
+output "mpt_sg_name" {
   value = aws_security_group.mysg.name
 }
 ```
