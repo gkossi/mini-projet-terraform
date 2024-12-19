@@ -487,5 +487,18 @@ resource "aws_eip_association" "myeip_association" {
 ```
 
 - Le fichier ***infos_ec2.txt*** :
+
 Ce fichier va servir à enregistrer les informations de la VM après son déploiement.
 
+### Etape N°4 : Déploiement de l'infrastructure
+
+1. **Initialisation**
+
+Pour démarrer le déploiement, nous allons commencer par l'initilisation qui va nous permettre de télécharger les plugins du provider AWS et aussi charger nos 4 modules (EBS, SG, EIP et EC2).
+Pour se faire, nous allons nous positionner dans le répertoire **app** et ensuite exécuter la commande suivante :
+
+```bash
+terraform init
+```
+
+> ![1-Terraform init] ![](./images/03-deploy/1-terraform-init.jpg)

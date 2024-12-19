@@ -1,8 +1,9 @@
 # Définition du groupe de sécurité à appliquer à notre infrastructure
 resource "aws_security_group" "mysg" {
+  description = "Autorisation des trafiques entrants et sortants"
   name        = var.sg_name
   tags        = var.sg_common_tag
-  description = "Autorisation des trafiques entrants et sortants"
+  vpc_id      = var.vpc_id
 
   # Règle pour autoriser le trafic entrant en HTTPS (port 443)
   ingress {
@@ -10,7 +11,7 @@ resource "aws_security_group" "mysg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+    cidr_blocks = var.ingress_allowed_cidrs #["0.0.0.0/0"] Ajout d'une variable pour personnaliser les CIDR autorisés
   }
 
   # Règle pour autoriser le trafic entrant en HTTP (port 80)
@@ -19,7 +20,7 @@ resource "aws_security_group" "mysg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+    cidr_blocks = var.ingress_allowed_cidrs
   }
 
   # Règle pour autoriser le trafic entrant en SSH (port 22)
@@ -28,7 +29,7 @@ resource "aws_security_group" "mysg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+    cidr_blocks = var.ingress_allowed_cidrs
   }
 
   # Règle pour autoriser tout type de trafic sortant de la VM
@@ -36,6 +37,6 @@ resource "aws_security_group" "mysg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"] # Permettre l'accès de partout
+    cidr_blocks = var.egress_allowed_cidrs
   }
 }

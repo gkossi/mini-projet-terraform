@@ -20,6 +20,8 @@ resource "aws_instance" "myec2" {
   tags            = var.ec2_common_tag
   key_name        = var.ec2_key_name
   security_groups = ["${var.ec2_sg}"]
+  subnet_id                   = var.subnet_id
+  associate_public_ip_address = true
 
   # S'assurer que l'EBS est attaché
   # depends_on = [aws_volume_attachment.ebs_attachment]

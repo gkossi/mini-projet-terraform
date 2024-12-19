@@ -9,11 +9,11 @@ variable "ebs_common_tag" {
   default = {
     Name = "ebs-mini-projet-terraform"
   }
-  description = "Le tag sur l'EBS"
+  description = "Le tag sur le volume EBS"
 }
 
 variable "ebs_size" {
   type        = number
   default     = 10
-  description = "La taille de l'EBS"
+  description = "La taille du volume EBS en GB"
 }
