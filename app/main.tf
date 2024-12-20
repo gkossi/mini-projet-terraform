@@ -40,8 +40,14 @@ module "ec2" {
   # Utilisation des valeurs des paramètres fournis par les modules
   # security_groups = module.sg.mpt_sg_name
   # associate_public_ip_address = true
-  ec2_sg = module.sg.mpt_sg_name
+  //ec2_sg = module.sg.mpt_sg_name
   //ec2_public_ip = module.eip.eip_public_ip
+  availability_zone = module.ebs.ebs_az
+  security_groups = [module.security_group.sg_id]
+  //associate_public_ip_address = true
+
+  # S'assurer que l'EBS est attaché
+  depends_on = [aws_volume_attachment.myebs_attachment]
 
 }
 
@@ -55,7 +61,7 @@ resource "aws_volume_attachment" "myebs_attachement" {
 # Création de l'EIP : Appel du module eip
 module "eip" {
   source = "../modules/eip"
-  instance_id = module.ec2.ec2_id
+  //instance_id = module.ec2.ec2_id
 }
 
 # Création de la ressource pour attacher l'EIP' à la VM

@@ -23,9 +23,6 @@ resource "aws_instance" "myec2" {
   subnet_id                   = var.subnet_id
   associate_public_ip_address = true
 
-  # S'assurer que l'EBS est attaché
-  # depends_on = [aws_volume_attachment.ebs_attachment]
-
   # Connexion à la VM et installation de nginx
   provisioner "remote-exec" {
     inline = [

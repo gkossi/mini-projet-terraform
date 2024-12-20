@@ -4,12 +4,6 @@ variable "ec2_instance_type" {
   default     = "t2.micro"
 }
 
-variable "ec2_user" {
-  description = "L'utilisateur configuré pour l'instance EC2"
-  type = string
-  default = "ubuntu"
-}
-
 variable "ec2_common_tag" {
   description = "Le tag sur l'instance EC2"
   type = map(string)
@@ -35,8 +29,14 @@ variable "subnet_id" {
   type        = string
 }
 
-variable "ec2_public_ip" {
+variable "ec2_user" {
+  description = "L'utilisateur configuré pour l'instance EC2"
+  type = string
+  default = "ubuntu"
+}
+
+/* variable "ec2_public_ip" {
   description = "L'adresse ip publique de l'instance EC2"
   type = string
   default = "0.0.0.0"
-}
+} */
