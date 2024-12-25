@@ -7,9 +7,9 @@ provider "aws" {
 # Configuration du backend s3
 terraform {
   backend "s3" {
-    bucket     = "mini-projet-terraform-backend"
-    key        = "mini-projet-terraform.tfstate"
-    region     = "us-east-1"
+    bucket                   = "mini-projet-terraform-backend"
+    key                      = "mini-projet-terraform.tfstate"
+    region                   = "us-east-1"
     shared_credentials_files = ["C:/Users/BORIS/Downloads/aws_credentials"]
   }
 }
@@ -42,7 +42,7 @@ module "eip" {
 # Création de la VM : Appel du module ec2
 module "ec2" {
   # Définition de la source du module EC2
-  source       = "../modules/ec2"
+  source = "../modules/ec2"
   ec2_sg = module.sg.sg_name_output
   //ec2_public_ip = module.eip.eip_public_ip_output
 

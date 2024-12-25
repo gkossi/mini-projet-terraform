@@ -5,8 +5,8 @@ variable "aws_region" {
 }
 
 variable "aws_credentials" {
-  type    = string
-  default = "C:/Users/BORIS/Downloads/aws_credentials"
+  type        = string
+  default     = "C:/Users/BORIS/Downloads/aws_credentials"
   description = "Le fichier contenant les credentials"
 }
 
