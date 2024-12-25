@@ -30,32 +30,7 @@ module "ebs" {
 # Création du groupe de sécurité : Appel du module sg
 module "sg" {
   source = "../modules/sg"
-}
-
-# Création de la VM : Appel du module ec2
-module "ec2" {
-  # Définition de la source du module EC2
-  source       = "../modules/ec2"
-
-  # Utilisation des valeurs des paramètres fournis par les modules
-  # security_groups = module.sg.mpt_sg_name
-  # associate_public_ip_address = true
-  //ec2_sg = module.sg.mpt_sg_name
-  //ec2_public_ip = module.eip.eip_public_ip
-  availability_zone = module.ebs.ebs_az
-  security_groups = [module.security_group.sg_id]
-  //associate_public_ip_address = true
-
-  # S'assurer que l'EBS est attaché
-  depends_on = [aws_volume_attachment.myebs_attachment]
-
-}
-
-# Création de la ressource pour attacher le volume EBS à la VM
-resource "aws_volume_attachment" "myebs_attachement" {
-  device_name = "/dev/sdb"
-  instance_id = module.ec2.ec2_id
-  volume_id   = module.ebs.ebs_id
+  //vpc_id      = module.eip.eip_id
 }
 
 # Création de l'EIP : Appel du module eip
@@ -64,8 +39,37 @@ module "eip" {
   //instance_id = module.ec2.ec2_id
 }
 
+# Création de la VM : Appel du module ec2
+module "ec2" {
+  # Définition de la source du module EC2
+  source       = "../modules/ec2"
+  ec2_sg = module.sg.sg_name_output
+  //ec2_public_ip = module.eip.eip_public_ip_output
+
+  # Utilisation des valeurs des paramètres fournis par les modules
+  # security_groups = module.sg.mpt_sg_name
+  # associate_public_ip_address = true
+  //ec2_sg = module.sg.mpt_sg_name
+  //ec2_public_ip = module.eip.eip_public_ip
+  //availability_zone = module.ebs.ebs_az
+  //security_groups = [module.sg.sg_id]
+  //associate_public_ip_address = true
+  //subnet_id = var.subnet_id
+
+  # S'assurer que l'EBS est attaché
+  //depends_on = [aws_volume_attachment.myebs_attachment]
+
+}
+
+# Création de la ressource pour attacher le volume EBS à la VM
+resource "aws_volume_attachment" "myebs_attachement" {
+  device_name = "/dev/sdb"
+  volume_id   = module.ebs.ebs_id_output
+  instance_id = module.ec2.ec2_id_output
+}
+
 # Création de la ressource pour attacher l'EIP' à la VM
 resource "aws_eip_association" "myeip_association" {
-  instance_id   = module.ec2.ec2_id
-  allocation_id = module.eip.eip_id
+  allocation_id = module.eip.eip_id_output
+  instance_id   = module.ec2.ec2_id_output
 }

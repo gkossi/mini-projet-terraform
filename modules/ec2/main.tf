@@ -17,16 +17,20 @@ data "aws_ami" "ubuntu_bionic" {
 resource "aws_instance" "myec2" {
   ami             = data.aws_ami.ubuntu_bionic.id
   instance_type   = var.ec2_instance_type
+  availability_zone = var.ec2_az
   tags            = var.ec2_common_tag
   key_name        = var.ec2_key_name
   security_groups = ["${var.ec2_sg}"]
-  subnet_id                   = var.subnet_id
-  associate_public_ip_address = true
+  //subnet_id       = var.subnet_id
+  //associate_public_ip_address = true
 
   # Connexion à la VM et installation de nginx
   provisioner "remote-exec" {
     inline = [
-      "sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx",
+      "sudo apt update -y",
+      "sudo apt install -y nginx",
+      "sudo systemctl enable nginx",
+      "sudo systemctl start nginx",
       "sudo echo <center><h1>Hello Eazytraining !!!</h1><h2>Bienvenue dans le Mini-Projet Terraform réalisé par Kossi GBENOU !</h2></center> > /usr/share/nginx/html/index.html"
     ]
 
@@ -40,7 +44,7 @@ resource "aws_instance" "myec2" {
 
   # Enregistrement des informations (ip publique, ID et AZ) de la VM dans un fichier en local sur mon PC
   provisioner "local-exec" {
-    command = "echo PUBLIC IP: ${self.public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
+    command = "echo PUBLIC IP: ${var.ec2_public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
   }
 
   # Supression automatique des volumes supplémentaires associés à notre VM

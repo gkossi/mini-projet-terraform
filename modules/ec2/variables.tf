@@ -18,15 +18,16 @@ variable "ec2_key_name" {
   default = "expertdevops"
 }
 
-variable "ec2_sg" {
-  description = "Liste des groupes de sécurité à associer à l'instance EC2"
-  type        = list(string)
-  default     = ["mini-projet-terraform-sg"]
+variable "ec2_az" {
+  description = "La zone de disponibilité où l'instance sera créée"
+  type        = string
+  default = "us-east-1a"
 }
 
-variable "subnet_id" {
-  description = "ID du sous-réseau où l'instance sera créée"
+variable "ec2_sg" {
+  description = "Liste des groupes de sécurité à associer à l'instance EC2"
   type        = string
+  default     = "mini-projet-terraform-sg"
 }
 
 variable "ec2_user" {
@@ -35,8 +36,8 @@ variable "ec2_user" {
   default = "ubuntu"
 }
 
-/* variable "ec2_public_ip" {
+variable "ec2_public_ip" {
   description = "L'adresse ip publique de l'instance EC2"
   type = string
   default = "0.0.0.0"
-} */
+}

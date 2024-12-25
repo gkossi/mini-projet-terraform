@@ -1,9 +1,9 @@
-output "ebs_id" {
+output "ebs_id_output" {
   description = "L'ID du volume EBS"
   value = aws_ebs_volume.myebs.id
 }
 
-output "ebs_az" {
-  description = "La zone de disônibilité du volume EBS"
-  value = aws_ebs_volume.myebs.ebs_az
+output "ebs_az_output" {
+  description = "La zone de disônibilité de l'EBS"
+  value = aws_ebs_volume.myebs.availability_zone
 }

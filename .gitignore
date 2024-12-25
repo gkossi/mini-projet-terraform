@@ -7,3 +7,6 @@ app/.terraform/
 app/*.tfstate
 app/*.backup
 app/*.hcl
+app/*.png
+app/*.jpg
+app/*.jpeg

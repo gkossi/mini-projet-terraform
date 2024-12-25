@@ -1,8 +1,8 @@
-output "ec2_id" {
+output "ec2_id_output" {
   value = aws_instance.myec2.id
 }
 
-output "ec2_az" {
+output "ec2_az_output" {
   value = aws_instance.myec2.availability_zone
 }
 
