@@ -267,19 +267,37 @@ Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 - Le fichier ***variables.tf*** :
 
 ```bash
-
+variable "eip_common_tag" {
+  description = "Le tag sur l'eip de l'instance ec2"
+  type = map(string)
+  default = {
+    Name = "eip_mini_projet_terraform"
+  }
+}
 ```
 
 - Le fichier ***main.tf*** :
 
 ```bash
-
+# Définition de l'adresse ip publique de notre VM EC2
+resource "aws_eip" "myeip" {
+  domain   = "vpc"
+  tags = var.eip_common_tag
+}
 ```
 
 - Le fichier ***outputs.tf*** :
 
 ```bash
+output "eip_id_output" {
+  description = "L'ID de l'EIP"
+  value = aws_eip.myeip.id
+}
 
+output "eip_public_ip_output" {
+  description = "L'address IP Public"
+  value = aws_eip.myeip.public_ip
+}
 ```
 
 #
