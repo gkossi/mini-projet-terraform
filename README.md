@@ -154,25 +154,108 @@ output "ebs_id_output" {
 #
 2. **Module SG :**
 #
-Ce module permet de créer un groupe de sécurité et de l'associer à notre machine virtuelle EC2.
+Ce module permet de créer un groupe de sécurité et de l'associer à notre VM EC2.
 Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 
 - Le fichier ***variables.tf*** :
 
 ```bash
+variable "sg_name" {
+  description = "Le nom du groupe de sécurité"
+  type        = string
+  default     = "mpt-allow-http-https-ssh"
+}
 
+variable "sg_common_tag" {
+  description = "Le tag sur le groupe de sécurité"
+  type        = map(string)
+  default = {
+    Name  = "sg-mini-projet-terraform"
+  }
+}
+
+variable "ingress_allowed_ipv4_cidrs" {
+  description = "Liste des blocs CIDR ipv4 autorisés à accéder à la VM"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "ingress_allowed_ipv6_cidrs" {
+  description = "Liste des blocs CIDR ipv6 autorisés à accéder à la VM"
+  type        = list(string)
+  default     = ["::/0"]
+}
+
+variable "egress_allowed_ipv4_cidrs" {
+  description = "Liste des blocs CIDR ipv4 auxquels la VM pourra accéder"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "egress_allowed_ipv6_cidrs" {
+  description = "Liste des blocs CIDR ipv6 auxquels la VM pourra accéder"
+  type        = list(string)
+  default     = ["::/0"]
+}
 ```
 
 - Le fichier ***main.tf*** :
 
 ```bash
+# Définition du groupe de sécurité à appliquer à notre infrastructure
+resource "aws_security_group" "mysg" {
+  description = "Autorisation des trafiques entrants et sortants"
+  name        = var.sg_name
+  tags        = var.sg_common_tag
 
+  # Règle pour autoriser le trafic entrant en HTTPS (port 443)
+  ingress {
+    description = "TLS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = var.ingress_allowed_ipv4_cidrs
+    ipv6_cidr_blocks = var.ingress_allowed_ipv6_cidrs
+  }
+
+  # Règle pour autoriser le trafic entrant en HTTP (port 80)
+  ingress {
+    description = "http from VPC"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = var.ingress_allowed_ipv4_cidrs
+    ipv6_cidr_blocks = var.ingress_allowed_ipv6_cidrs
+  }
+
+  # Règle pour autoriser le trafic entrant en SSH (port 22)
+  ingress {
+    description = "ssh from VPC"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.ingress_allowed_ipv4_cidrs
+    ipv6_cidr_blocks = var.ingress_allowed_ipv6_cidrs
+  }
+
+  # Règle pour autoriser tout type de trafic sortant de la VM
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = var.egress_allowed_ipv4_cidrs
+    ipv6_cidr_blocks = var.ingress_allowed_ipv6_cidrs
+  }
+}
 ```
 
 - Le fichier ***outputs.tf*** :
 
 ```bash
-
+output "sg_name_output" {
+  description = "Le nom du groupe de sécurité"
+  value = aws_security_group.mysg.name
+}
 ```
 
 #

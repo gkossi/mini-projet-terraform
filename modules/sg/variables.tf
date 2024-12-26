@@ -12,19 +12,26 @@ variable "sg_common_tag" {
   }
 }
 
-/* variable "vpc_id" {
-  description = "ID du VPC pour le groupe de sécurité"
-  type        = string
-} */
-
-variable "ingress_allowed_cidrs" {
-  description = "Liste des blocs CIDR autorisés à accéder à la VM"
+variable "ingress_allowed_ipv4_cidrs" {
+  description = "Liste des blocs CIDR ipv4 autorisés à accéder à la VM"
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
 
-variable "egress_allowed_cidrs" {
-  description = "Liste des blocs CIDR autorisés pour etre accédé par la VM"
+variable "ingress_allowed_ipv6_cidrs" {
+  description = "Liste des blocs CIDR ipv6 autorisés à accéder à la VM"
+  type        = list(string)
+  default     = ["::/0"]
+}
+
+variable "egress_allowed_ipv4_cidrs" {
+  description = "Liste des blocs CIDR ipv4 auxquels la VM pourra accéder"
   type        = list(string)
   default     = ["0.0.0.0/0"]
+}
+
+variable "egress_allowed_ipv6_cidrs" {
+  description = "Liste des blocs CIDR ipv6 auxquels la VM pourra accéder"
+  type        = list(string)
+  default     = ["::/0"]
 }
