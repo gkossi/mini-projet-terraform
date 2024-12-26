@@ -58,7 +58,7 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 	- Le fichier **infos_ec2.txt**: va servir à enregistrer certaines infos utiles de notre infra comme : PUBLIC IP, ID et AZ.
 
 #
-![PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES](https://img.shields.io/badge/PLAN%20DE%20TRAVAIL%20%3A%20%20LES%20OPERATIONS%20A%20EFFECTUEES-red?style=for-the-badge)
+![PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUER](https://img.shields.io/badge/PLAN%20DE%20TRAVAIL%20%3A%20%20LES%20OPERATIONS%20A%20EFFECTUER-red?style=for-the-badge)
 1. **Etape N°1 :** Pour commencer, nous allons d'abord créer le bucket S3 ;
 2. **Etape N°2 :** Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète. Pour se faire, nous allons procéder comme suit :
 	- Créer un répertoire nommé ***modules*** à la racine du projet et y créer à l'intérieur un sous-répertoire pour chacun des module ***ec2***, ***ebs***, ***eip*** et ***sg*** qui vont contenir les fichiers manifests ;
@@ -546,7 +546,7 @@ terraform plan
 
 3. **Déploiement des ressources planifiées**
 
-Après avoir initialisé l'environnement à déployer en téléchargeant le plugin du provider ainsi que les différents éléments nécessaires, la prochaine action est de planifier les différentes ressources (EBS, SG, EIP et EC2) à déployer.
+Après avoir initialisé l'environnement à déployer et planifié les différentes ressources à créer, la prochaine action est de lancer le déploiement.
 Pour se faire, nous allons exécuter la commande suivante :
 
 ```bash
