@@ -60,6 +60,7 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 #
 ![PLAN DE TRAVAIL :  LES OPERATIONS A EFFECTUEES](https://img.shields.io/badge/PLAN%20DE%20TRAVAIL%20%3A%20%20LES%20OPERATIONS%20A%20EFFECTUEES-red?style=for-the-badge)
 
+![Etape N°1](https://img.shields.io/badge/Etape%20N%C2%B01%20%3A-blue?style=for-the-badge) Pour commencer, nous allons d'abord créer le bucket S3 ;
 1. **Etape N°1 :** Pour commencer, nous allons d'abord créer le bucket S3 ;
 2. **Etape N°2 :** Créer les différents modules (EC2, EBS, EIP, SG) qui vont permettre de provisionner une infra complète. Pour se faire, nous allons procéder comme suit :
 	- Créer un répertoire nommé ***modules*** à la racine du projet et y créer à l'intérieur un sous-répertoire pour chacun des module ***ec2***, ***ebs***, ***eip*** et ***sg*** qui vont contenir les fichiers manifests ;
