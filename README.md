@@ -554,3 +554,41 @@ terraform apply
 ```
 
 > ![4-Terraform apply] ![](./images/03-deploy/4-terraform-apply.jpg)
+
+### Etape N°5 : Vériifcations
+
+#
+1. **Vérification du state file stocké dans un bucket S3 :**
+#
+
+> ![1-STATE-FILE] ![](./images/04-verification/1-state-file.jpg)
+
+#
+2. **Vérification de l'EBS créé et rattaché à la VM :**
+#
+
+> ![2-EBS] ![](./images/04-verification/2-ebs.jpg)
+
+#
+3. **Vérification du groupe de sécurité créé et associé à la VM :**
+#
+
+> ![3-SG] ![](./images/04-verification/3-sg.jpg)
+
+#
+4. **Vérification de l'Elastic IP créée et associée à la VM :**
+#
+
+> ![4-EIP] ![](./images/04-verification/4-eip.jpg)
+
+#
+5. **Vérification de la VM déployée :**
+#
+
+> ![5-EC2] ![](./images/04-verification/5-ec2.jpg)
+
+#
+6. **Vérification du serveur NGINX installé :**
+#
+
+> ![6-NGINX] ![](./images/04-verification/6-nginx.jpg)
