@@ -514,7 +514,7 @@ Ce fichier va servir à enregistrer les informations de la VM après son déploi
 
 ### Etape N°4 : Déploiement de l'infrastructure
 
-1. **Initialisation**
+1. **Initialisation et validation de la configuration**
 
 Pour démarrer le déploiement, nous allons commencer par l'initilisation qui va nous permettre de télécharger les plugins du provider AWS et aussi charger nos 4 modules (EBS, SG, EIP et EC2).
 Pour se faire, nous allons nous positionner dans le répertoire **app** et ensuite exécuter la commande suivante :
