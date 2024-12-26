@@ -524,3 +524,11 @@ terraform init
 ```
 
 > ![1-Terraform init] ![](./images/03-deploy/1-terraform-init.jpg)
+
+Après l'étape d'initialisation, nous allons procéder à la validation de notre configuration en exécutant la commande suivante :
+
+```bash
+terraform validate
+```
+
+> ![2-Terraform validate] ![](./images/03-deploy/2-terraform-validate.jpg)
