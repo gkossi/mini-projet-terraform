@@ -309,19 +309,122 @@ Le contenu des trois (03) fichiers de ce module se présentent comme suit :
 - Le fichier ***variables.tf*** :
 
 ```bash
+variable "ec2_instance_type" {
+  description = "Le type d'instance EC2"
+  type        = string
+  default     = "t2.micro"
+}
 
+variable "ec2_common_tag" {
+  description = "Le tag sur l'instance EC2"
+  type = map(string)
+  default = {
+    Name = "ec2-mini-projet-terraform"
+  }
+}
+
+variable "ec2_key_name" {
+  description = "Nom de la paire de clés pour l'accès SSH à l'instance EC2"
+  type    = string
+  default = "expertdevops"
+}
+
+variable "ec2_az" {
+  description = "La zone de disponibilité où l'instance sera créée"
+  type        = string
+  default = "us-east-1a"
+}
+
+variable "ec2_sg" {
+  description = "Liste des groupes de sécurité à associer à l'instance EC2"
+  type        = string
+  default     = "mini-projet-terraform-sg"
+}
+
+variable "ec2_user" {
+  description = "L'utilisateur configuré pour l'instance EC2"
+  type = string
+  default = "ubuntu"
+}
+
+variable "ec2_public_ip" {
+  description = "L'adresse ip publique de l'instance EC2"
+  type = string
+  default = "0.0.0.0"
+}
 ```
 
 - Le fichier ***main.tf*** :
 
 ```bash
+# Obtenir dynamiquement la dernière version de ubuntu bionic
+data "aws_ami" "ubuntu_bionic" {
+  most_recent = true
+  owners      = ["099720109477"] # ID du propriétaire officiel des AMIs Ubuntu dans AWS
 
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
+# Définition de l'instance EC2 à déployer
+resource "aws_instance" "myec2" {
+  ami             = data.aws_ami.ubuntu_bionic.id
+  instance_type   = var.ec2_instance_type
+  availability_zone = var.ec2_az
+  tags            = var.ec2_common_tag
+  key_name        = var.ec2_key_name
+  security_groups = ["${var.ec2_sg}"]
+
+  # Connexion à la VM et installation de nginx
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt update -y",
+      "sudo apt install -y nginx",
+      "sudo systemctl enable nginx",
+      "sudo systemctl start nginx",
+      "sudo echo <center><h1>Hello Eazytraining !!!</h1><h2>Bienvenue dans le Mini-Projet Terraform réalisé par Kossi GBENOU !</h2></center> > /usr/share/nginx/html/index.html"
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = var.ec2_user
+      private_key = file("C:/Users/BORIS/Downloads/${var.ec2_key_name}.pem")
+      host        = self.public_ip
+    }
+  }
+
+  # Enregistrement des informations (ip publique, ID et AZ) de la VM dans un fichier en local sur mon PC
+  provisioner "local-exec" {
+    #command = "echo PUBLIC IP: ${var.ec2_public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} >> infos_ec2.txt"
+    command = "echo PUBLIC IP: ${var.ec2_public_ip} >> infos_ec2.txt"
+  }
+
+  # Supression automatique des volumes supplémentaires associés à notre VM
+  root_block_device {
+    delete_on_termination = true
+  }
+
+}
 ```
 
 - Le fichier ***outputs.tf*** :
 
 ```bash
+output "ec2_id_output" {
+  description = "L'ID de la VM EC2 créée"
+  value = aws_instance.myec2.id
+}
 
+output "ec2_az_output" {
+  description = "La zone de disponiblité de la VM EC2 créée"
+  value = aws_instance.myec2.availability_zone
+}
 ```
 
 ### Etape N°3 : Création de l'environnement (APP) à provisionner : Utilisation des modules

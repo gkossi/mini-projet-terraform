@@ -1,12 +1,9 @@
 output "ec2_id_output" {
+  description = "L'ID de la VM EC2 créée"
   value = aws_instance.myec2.id
 }
 
 output "ec2_az_output" {
+  description = "La zone de disponiblité de la VM EC2 créée"
   value = aws_instance.myec2.availability_zone
 }
-
-#PUBLIC IP: 72.44.57.63; ID: i-0d06f322a79058cb5; AZ: us-east-1c 
-#ID: ${aws_instance.myec2.id};
-#PUBLIC IP: ${self.public_ip};
-#AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
