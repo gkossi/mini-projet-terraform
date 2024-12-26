@@ -557,6 +557,8 @@ terraform apply
 
 ![Etape N°5 : Vérifications](https://img.shields.io/badge/Etape%20N%C2%B05%20%3A%20V%C3%A9rifications-blue?style=for-the-badge)
 
+Une fois notre infrastructure déployée, nous allons maintenant procéder à sa vérification et à son exploitation.
+
 #
 1. **Vérification du state file stocké dans un bucket S3 :**
 #
