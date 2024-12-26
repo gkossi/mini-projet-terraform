@@ -38,7 +38,7 @@ module "ec2" {
 
 # Création de la ressource pour attacher le volume EBS à la VM
 resource "aws_volume_attachment" "myebs_attachement" {
-  device_name = "/dev/sdb"
+  device_name = "/dev/sdh"
   volume_id   = module.ebs.ebs_id_output
   instance_id = module.ec2.ec2_id_output
 }

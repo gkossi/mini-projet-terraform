@@ -29,7 +29,7 @@ resource "aws_instance" "myec2" {
       "sudo apt install -y nginx",
       "sudo systemctl enable nginx",
       "sudo systemctl start nginx",
-      "sudo echo <center><h1>Hello Eazytraining !!!</h1><h2>Bienvenue dans le Mini-Projet Terraform réalisé par Kossi GBENOU !</h2></center> > /usr/share/nginx/html/index.html"
+      "echo '<center><h1>Hello Eazytraining !!!</h1><h2>Bienvenue dans le Mini-Projet Terraform réalisé par Kossi GBENOU !</h2></center>' | sudo tee /usr/share/nginx/html/index.html > /dev/null"
     ]
 
     connection {
@@ -43,12 +43,11 @@ resource "aws_instance" "myec2" {
   # Enregistrement des informations (ip publique, ID et AZ) de la VM dans un fichier en local sur mon PC
   provisioner "local-exec" {
     #command = "echo PUBLIC IP: ${var.ec2_public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} >> infos_ec2.txt"
-    command = "echo PUBLIC IP: ${var.ec2_public_ip} >> infos_ec2.txt"
+    command = "echo PUBLIC IP: ${self.public_ip} >> infos_ec2.txt"
   }
 
   # Supression automatique des volumes supplémentaires associés à notre VM
   root_block_device {
     delete_on_termination = true
   }
-
 }
