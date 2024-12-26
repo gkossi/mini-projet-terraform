@@ -93,7 +93,7 @@ Amazon S3 -> Create bucket
 
 > ![Création du bucket S3 (Suite)] ![](./images/02-buckets3/2-bucket-creation2.jpg)
 
-### Etape N°2 : Création des modules
+![Etape N°2 : Création des modules](https://img.shields.io/badge/Etape%20N%C2%B02%20%3A%20Cr%C3%A9ation%20des%20modules-blue?style=for-the-badge)
 <!--div>
 Création des dossiers et fichiers :
 mkdir -p mini-projet-terraform && cd mini-projet-terraform 
@@ -427,7 +427,7 @@ output "ec2_az_output" {
 }
 ```
 
-### Etape N°3 : Création de l'environnement (APP) à provisionner : Utilisation des modules
+![Etape N°3 : Création de l'environnement (APP) à provisionner : Utilisation des modules](https://img.shields.io/badge/Etape%20N%C2%B03%20%3A%20Cr%C3%A9ation%20de%20l%27environnement%20%28APP%29%20%C3%A0%20provisionner%20%3A%20Utilisation%20des%20modules-blue?style=for-the-badge)
 
 Ici, il s'agira de la mise en place de notre infra principale.
 Comme décrit précédemment, nous allons créer un répertoire nommé ***app*** à la racine du projet qui va contenir les fichiers manifests (***variables.tf*** et ***main.tf***) ainsi que le fichier ***infos_ec2.txt***.
@@ -512,7 +512,7 @@ resource "aws_eip_association" "myeip_association" {
 
 Ce fichier va servir à enregistrer les informations de la VM après son déploiement.
 
-### Etape N°4 : Déploiement de l'infrastructure
+![Etape N°4 : Déploiement de l'infrastructure](https://img.shields.io/badge/Etape%20N%C2%B04%20%3A%20D%C3%A9ploiement%20de%20l%27infrastructure-blue?style=for-the-badge)
 
 1. **Initialisation et validation de la configuration**
 
@@ -555,7 +555,7 @@ terraform apply
 
 > ![4-Terraform apply] ![](./images/03-deploy/4-terraform-apply.jpg)
 
-### Etape N°5 : Vériifcations
+![Etape N°5 : Vérifications](https://img.shields.io/badge/Etape%20N%C2%B05%20%3A%20V%C3%A9rifications-blue?style=for-the-badge)
 
 #
 1. **Vérification du state file stocké dans un bucket S3 :**
@@ -592,3 +592,6 @@ terraform apply
 #
 
 > ![6-NGINX] ![](./images/04-verification/6-nginx.jpg)
+
+#
+![CONCLUSION](https://img.shields.io/badge/CONCLUSION-red?style=for-the-badge)
