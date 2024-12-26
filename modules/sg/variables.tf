@@ -2,7 +2,6 @@ variable "sg_name" {
   description = "Le nom du groupe de sécurité"
   type        = string
   default     = "mpt-allow-http-https-ssh"
-  #default     = "mpt_allow_http_https_ssh"
 }
 
 variable "sg_common_tag" {
@@ -10,7 +9,6 @@ variable "sg_common_tag" {
   type        = map(string)
   default = {
     Name  = "sg-mini-projet-terraform"
-    #Name  = "sg_mini_projet_terraform"
   }
 }
 

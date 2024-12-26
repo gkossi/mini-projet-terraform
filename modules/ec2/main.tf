@@ -44,7 +44,8 @@ resource "aws_instance" "myec2" {
 
   # Enregistrement des informations (ip publique, ID et AZ) de la VM dans un fichier en local sur mon PC
   provisioner "local-exec" {
-    command = "echo PUBLIC IP: ${var.ec2_public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} > infos_ec2.txt"
+    #command = "echo PUBLIC IP: ${var.ec2_public_ip}; ID: ${aws_instance.myec2.id}; AZ: ${aws_instance.myec2.availability_zone} >> infos_ec2.txt"
+    command = "echo PUBLIC IP: ${var.ec2_public_ip} >> infos_ec2.txt"
   }
 
   # Supression automatique des volumes supplémentaires associés à notre VM

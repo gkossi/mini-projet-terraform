@@ -58,6 +58,9 @@ module "ec2" {
 
   # S'assurer que l'EBS est attaché
   //depends_on = [aws_volume_attachment.myebs_attachment]
+  # S'assurer que l'EBS est attaché
+  depends_on = [module.eip]
+
 
 }
 
