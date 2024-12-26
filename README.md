@@ -81,7 +81,8 @@ Dans la réalisation de tout projet, il est nécessaire d'adopter une méthologi
 #
 ![REALISATIONS ETAPE PAR ETAPE](https://img.shields.io/badge/REALISATIONS%20ETAPE%20PAR%20ETAPE-red?style=for-the-badge)
 
-### Etape N°1 : Création du bucket S3
+![Etape N°1 : Création du bucket S3](https://img.shields.io/badge/Etape%20N%C2%B01%20%3A%20Cr%C3%A9ation%20du%20bucket%20S3-blue?style=for-the-badge)
+
 Comme prévu dans notre plan de travail, on va commencer par créer le buckect S3 qui va servir à stocker le state file de notre projet.
 
 ```bash
