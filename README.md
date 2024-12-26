@@ -532,3 +532,14 @@ terraform validate
 ```
 
 > ![2-Terraform validate] ![](./images/03-deploy/2-terraform-validate.jpg)
+
+2. **Planification des ressources à déployer**
+
+Après avoir initialisé l'environnement à déployer en téléchargeant le plugin du provider ainsi que les différents éléments nécessaires, la prochaine action est de planifier les différentes ressources (EBS, SG, EIP et EC2) à déployer.
+Pour se faire, nous allons exécuter la commande suivante :
+
+```bash
+terraform plan
+```
+
+> ![3-Terraform plan] ![](./images/03-deploy/3-terraform-plan.jpg)
