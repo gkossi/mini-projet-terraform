@@ -596,6 +596,8 @@ terraform apply
 #
 ![CONCLUSION](https://img.shields.io/badge/CONCLUSION-red?style=for-the-badge)
 
-Comme le dit-on souvent, on ne fini jamais d'apprendre. Mon expérience fut enrichissante car grâce à ce projet, j'ai eu l'occasion de mettre en valeur les bonnes pratiques à travers l'utilisation de modules.
+Comme le dit-on souvent, on ne fini jamais d'apprendre. 
+
+Mon expérience fut enrichissante car grâce à ce projet, j'ai eu l'occasion de mettre en valeur les bonnes pratiques à travers l'utilisation de modules.
 
 ### Accédez à mon profil LinkedIn : https://www.linkedin.com/in/gkossi/
